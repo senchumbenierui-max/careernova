@@ -1,0 +1,40 @@
+{
+  "about": "Retrieval eval for the chat assistant. allOf: every id should be in the top k. anyOf: at least one should. Written before tuning, in the words a student might use.",
+  "k": 5,
+  "questions": [
+    { "type": "knowledge", "q": "What is a Job Zone?", "allOf": ["kb:what-a-job-zone-is"] },
+    { "type": "knowledge", "q": "Is my match score the chance I'll get the job?", "allOf": ["kb:the-match-score-is-not-a-probability"] },
+    { "type": "knowledge", "q": "How are tools scored?", "allOf": ["kb:how-the-tools-part-is-scored"] },
+    { "type": "knowledge", "q": "Why did I get only 6 points for preparation?", "allOf": ["kb:how-the-preparation-part-is-scored"] },
+    { "type": "knowledge", "q": "Where does the career data come from?", "allOf": ["kb:where-the-data-comes-from"] },
+    { "type": "knowledge", "q": "Does CareerNova upload my resume?", "allOf": ["kb:reading-your-cv"] },
+    { "type": "knowledge", "q": "How accurate is the model that predicts the zone?", "allOf": ["kb:the-job-zone-prediction-model"] },
+    { "type": "knowledge", "q": "How much salary does a data scientist earn?", "allOf": ["kb:what-careernova-does-not-know", "occ:15-2051.00"] },
+    { "type": "knowledge", "q": "What does the skill gap plan suggest?", "allOf": ["kb:the-skill-gap-plan"] },
+    { "type": "knowledge", "q": "What happens if a career has no data?", "allOf": ["kb:what-happens-when-data-is-missing"] },
+    { "type": "knowledge", "q": "Is my profile stored on a server?", "allOf": ["kb:privacy-and-your-data"] },
+    { "type": "knowledge", "q": "How are my self-ratings compared with the job?", "allOf": ["kb:how-the-core-skills-part-is-scored"] },
+
+    { "type": "named", "q": "What does a software developer do?", "allOf": ["occ:15-1252.00"] },
+    { "type": "named", "q": "Compare data scientists and statisticians", "allOf": ["occ:15-2051.00", "occ:15-2041.00"] },
+    { "type": "named", "q": "What tools do civil engineers need?", "allOf": ["occ:17-2051.00"] },
+    { "type": "named", "q": "What Job Zone is a registered nurse?", "allOf": ["occ:29-1141.00"] },
+    { "type": "named", "q": "Tell me about 27-1024.00", "allOf": ["occ:27-1024.00"] },
+    { "type": "named", "q": "How do I become a lawyer?", "allOf": ["occ:23-1011.00"] },
+    { "type": "named", "q": "what do pharmacists do", "allOf": ["occ:29-1051.00"] },
+
+    { "type": "paraphrase", "q": "Jobs where I care for animals", "anyOf": ["occ:39-2021.00", "occ:31-9096.00", "occ:29-1131.00", "occ:29-2056.00"] },
+    { "type": "paraphrase", "q": "careers that protect computer networks from hackers", "anyOf": ["occ:15-1212.00", "occ:15-1299.05", "occ:15-1299.04"] },
+    { "type": "paraphrase", "q": "I want to design buildings", "anyOf": ["occ:17-1011.00", "occ:17-3011.00"] },
+    { "type": "paraphrase", "q": "jobs building websites", "anyOf": ["occ:15-1254.00"] },
+    { "type": "paraphrase", "q": "who fixes wiring in houses", "anyOf": ["occ:47-2111.00"] },
+    { "type": "paraphrase", "q": "cooking in a restaurant kitchen as a career", "anyOf": ["occ:35-1011.00", "occ:35-2014.00"] },
+    { "type": "paraphrase", "q": "flying planes for an airline", "anyOf": ["occ:53-2011.00", "occ:53-2012.00"] },
+    { "type": "paraphrase", "q": "jobs analysing surveys and market trends", "anyOf": ["occ:13-1161.00"] },
+    { "type": "paraphrase", "q": "testing software for bugs", "anyOf": ["occ:15-1253.00"] },
+
+    { "type": "tool", "q": "Which careers use AutoCAD?", "allOf": ["tool:9"] },
+    { "type": "tool", "q": "jobs that use Python and SQL", "allOf": ["tool:16", "tool:12"] },
+    { "type": "tool", "q": "is excel useful for accountants", "allOf": ["tool:0", "occ:13-2011.00"] }
+  ]
+}
